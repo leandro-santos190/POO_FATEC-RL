@@ -1,3 +1,4 @@
+import java.util.GregorianCalendar;
 
 public class PrePago extends Assinante {
 	
@@ -20,6 +21,30 @@ public PrePago(long cpf, String nome, int numero) {
 	this.chamadas = new Chamada[10];
 
 }
+
+public void fazerChamada(GregorianCalendar data, int duracao) {
+
+	float custo_ligacao = 1.45f * duracao; //Custo da ligação 1,45 por minuto
+
+	// System.out.println("Tamanho do vetor chamadas = "+chamadas.length);
+	// System.out.println("numChamadas = "+numChamadas);
+
+	if (chamadas.length > numChamadas && this.creditos >= custo_ligacao) {
+
+		Chamada chamada = new Chamada(data, duracao); //instanciei um objeto do tipo chamada, passando como argumento, os parametros recebidos no método
+		chamadas[numChamadas] = chamada; //adiciono as informações da chamada, no vetor chamadas 
+		numChamadas++; //incremento o número de chamadas feita usando plano pré-pago
+		this.creditos -= custo_ligacao; //subtraio o custo da ligação do valor de créditos
+		System.out.println("Ligação realizada!"); //Saída para indicar que a chamada foi bem sucedidida
+
+	} else {
+		System.out.println("Você não possui créditos suficientes para completar esta ligação!");//Saída para indicar que a chamada não foi bem sucedidida
+
+	}
+
+}
+
+
 
 }
 
