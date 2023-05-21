@@ -31,7 +31,7 @@ public void fazerChamada(GregorianCalendar data, int duracao) {
 
 	if (chamadas.length > numChamadas && this.creditos >= custo_ligacao) {
 
-		Chamada chamada = new Chamada(data, duracao); //instanciei um objeto do tipo chamada, passando como argumento, os parametros recebidos no método
+		Chamada chamada = new Chamada(data, duracao); //instanciei um objeto do tipo Chamada, passando como argumento, os parametros recebidos no método
 		chamadas[numChamadas] = chamada; //adiciono as informações da chamada, no vetor chamadas 
 		numChamadas++; //incremento o número de chamadas feita usando plano pré-pago
 		this.creditos -= custo_ligacao; //subtraio o custo da ligação do valor de créditos
@@ -43,6 +43,22 @@ public void fazerChamada(GregorianCalendar data, int duracao) {
 	}
 
 }
+
+public void recarregar(GregorianCalendar data, float valor) {
+
+	// System.out.print(recargas.length);
+	if (recargas.length <= 10) { //verifico se tem espaço no vetor de recargas
+		Recarga recarga = new Recarga(data, valor); //instanciei um objeto do tipo Recarga, passando como argumento, os parametros recebidos no método
+		recargas[numRecargas] = recarga; //adiciono as informações da recarga, no vetor recargas
+		this.numRecargas++; //incremento o número de recargas feita usando plano pré-pago
+		this.creditos += valor; //adiciono o valor da recarga ao valor dos créditos
+		System.out.println("\nRecarga realizada!"); //Saída para indicar que a recarga foi bem sucedidida
+
+	} else {
+		System.out.println("Você não pode mais fazer recargas... estranho!");//Saída para indicar que a recarga não foi bem sucedidida
+	}
+}
+
 
 
 
