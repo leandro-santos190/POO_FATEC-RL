@@ -18,4 +18,10 @@ public class Chamada { // Inicializando a classe chamada com seus atributos
     return this.duracao;
   }
 
+  @Override // toString() foi sobrescrito para retornar uma string que representa uma chamada 
+  public String toString() { // Retorna uma representacao em forma de string do objeto
+    SimpleDateFormat Formato = new SimpleDateFormat("dd/MM/yyyy"); 
+    String dataFormatada = Formato.format(this.data); // formata a data e armazena o resultado na variavel dataFormatada
+    return "Chamada: Data =" + dataFormatada + " Duração =" + duracao + "";
+  }
 }
