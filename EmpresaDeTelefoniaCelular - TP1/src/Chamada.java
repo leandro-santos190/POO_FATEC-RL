@@ -10,4 +10,12 @@ public class Chamada { // Inicializando a classe chamada com seus atributos
     this.duracao = duracao;
   }
 
+  public GregorianCalendar getData() { // Metodo que retorna um atributo data
+    return this.data;
+  }
+
+  public int getDuracao() { // Metodo que retorna um atributo duracao
+    return this.duracao;
+  }
+
 }
