@@ -59,7 +59,31 @@ public void recarregar(GregorianCalendar data, float valor) {
 	}
 }
 
+public void imprimirFatura(int mes) {
+	float total_fatura = 0;
+	System.out.println("\n---------Assinante------------");
+	System.out.println(super.toString());//Chama o metodo construtor da classe mãe Assinante e puxa os dados do Assinante
 
+	Chamada[] c = chamadas; //instanciei um objeto do tipo Chamada e atribui a ele, o vetor de chamadas, para listar todos as chamadas do mês, de um assinante pre-pago
+	System.out.println("\n---------Chamadas-------------");
+	for (int i = 0; i < c.length; i++) {
+		if (c[i] != null) { // Verifica se o elemento não é nulo antes de acessá-lo
+			GregorianCalendar data = c[i].getData();
+			int dia = data.get(GregorianCalendar.DAY_OF_MONTH); //	Retorna o dia do mês, de uma determinada chamada feita em alguma data qualquer. 
+			int mesChamada = data.get(GregorianCalendar.MONTH) + 1; // Retorna o dia do mês, de uma determinada chamada feita em alguma data qualquer / adiciona 1 ao mês porque os meses iniciam em zero e vão ate onze
+			int ano = data.get(GregorianCalendar.YEAR);//	Retorna o ano, de uma determinada chamada feita em alguma data qualquer.
+			System.out.println("\nData: " + dia + "/" + mesChamada + "/" + ano); //Exibe a data 
+			System.out.println("Duração: " + c[i].getDuracao()); //retorna o a duração da chamada, pelo metodo getDuracao de Chamada
+			float custo_ligacao = (c[i].getDuracao() * 145) / 100; //calcula o custo de uma ligação, feita em uma data qualquer
+			System.out.println("Custo: R$" + custo_ligacao); //exibe o custo da ligação
+			total_fatura += custo_ligacao; //Aqui soma os custos de todas as ligações
+		}
+	}
+	System.out.println("\n---------Valor-Total----------");
+	System.out.println("\nTotal da Fatura: R$" + total_fatura);//exibe o valor total da fatura
+	System.out.println("Total de Recargas: " + this.numRecargas); //exibe o valor total de recargas
+	System.out.println("Creditos Disponiveis: " + this.creditos);//exibe o valor total dos creditos
+}
 
 
 }
