@@ -17,5 +17,10 @@ public class Assinante {
 	public long getCpf() {
 		return this.cpf;
 	}
+	@Override
+
+    public String toString() {
+        return "CPF: " + this.cpf + "\nNome: " + this.nome + "\nNúmero: " + this.numero;
+    }
 
 }
