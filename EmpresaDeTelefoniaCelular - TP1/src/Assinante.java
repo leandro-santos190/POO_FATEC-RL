@@ -13,5 +13,9 @@ public class Assinante {
 		this.chamadas = new Chamada[10];
 		this.numChamadas++;
 	}
+	
+	public long getCpf() {
+		return this.cpf;
+	}
 
 }
