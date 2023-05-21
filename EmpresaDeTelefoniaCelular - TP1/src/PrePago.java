@@ -68,7 +68,7 @@ public void imprimirFatura(int mes) {
 	System.out.println("\n---------Chamadas-------------");
 	for (int i = 0; i < c.length; i++) {
 		if (c[i] != null) { // Verifica se o elemento não é nulo antes de acessá-lo
-			GregorianCalendar data = c[i].getData();
+			GregorianCalendar data = c[i].getData(); //Chamo metodo getData para retornar a data de cada ligação 
 			int dia = data.get(GregorianCalendar.DAY_OF_MONTH); //	Retorna o dia do mês, de uma determinada chamada feita em alguma data qualquer. 
 			int mesChamada = data.get(GregorianCalendar.MONTH) + 1; // Retorna o dia do mês, de uma determinada chamada feita em alguma data qualquer / adiciona 1 ao mês porque os meses iniciam em zero e vão ate onze
 			int ano = data.get(GregorianCalendar.YEAR);//	Retorna o ano, de uma determinada chamada feita em alguma data qualquer.
