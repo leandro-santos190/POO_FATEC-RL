@@ -266,6 +266,57 @@ public class Telefonia {
                 assinantesPosPago[i].imprimirFatura(mes);
             }
     
+        
         }
+
+        public static void main(String[] args) {
+
+            Telefonia user = new Telefonia();
+            int opcao = 0;
+            Scanner scanner = new Scanner(System.in);
+            user.telefonia();
+    
+            do {
+    
+                System.out.println("\n=== MENU ===");
+                System.out.println("1 - Cadastrar Assinante");
+                System.out.println("2 - Listar Assinantes");
+                System.out.println("3 - Fazer Chamada");
+                System.out.println("4 - Fazer Recarga");
+                System.out.println("5 - Imprimir Faturas");
+                System.out.println("6 - Sair");
+                System.out.print("Opcao: ");
+    
+                opcao = scanner.nextInt();
+                scanner.nextLine();
+    
+                switch (opcao) {
+                case 1:
+                    user.cadastrarAssinante();
+                    break;
+                case 2:
+                    user.listarAssinante();
+                    break;
+                case 3:
+                    user.fazerChamada();
+                    break;
+                case 4:
+                    user.fazerRecarga();
+                    break;
+                case 5:
+                    user.imprimirFaturas();
+                    break;
+                case 6:
+                    System.out.println("Bye!");
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+                    break;
+                }
+    
+            } while (opcao != 6);
+    
+        }
+    
     
 }
