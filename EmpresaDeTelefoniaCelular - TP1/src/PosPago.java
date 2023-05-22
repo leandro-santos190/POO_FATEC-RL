@@ -41,12 +41,13 @@ public class PosPago extends Assinante {
 				int dia = data.get(GregorianCalendar.DAY_OF_MONTH);//	Retorna o dia do mês, de uma determinada chamada feita em alguma data qualquer.
 				int m = data.get(GregorianCalendar.MONTH) + 1; // Retorna o dia do mês, de uma determinada chamada feita em alguma data qualquer / adiciona 1 ao mês porque os meses iniciam em zero e vão ate onze
 				int ano = data.get(GregorianCalendar.YEAR);//	Retorna o ano, de uma determinada chamada feita em alguma data qualquer.
-
+				if(m == mes) { //compara o mes do argumento do metodo com o mes da chamada
 				System.out.println("Data: " + dia + "/" + m + "/" + ano); //Exibe a data
 				System.out.println("Duração: " + chamadas[i].getDuracao());//retorna o a duração da chamada, pelo metodo getDuracao de Chamada
 				float custo_ligacao = (chamadas[i].getDuracao() * 104) / 100;//calcula o custo de uma ligação, feita em uma data qualquer
 				System.out.println("Custo: R$" + custo_ligacao);//exibe o custo da ligação
 				total_fatura += custo_ligacao;//Aqui soma os custos de todas as ligações
+				}
 			}
 		}
 
