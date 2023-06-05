@@ -1,10 +1,11 @@
+import java.util.GregorianCalendar;
 
-public class Assinante {
+public abstract class Assinante {
 	private long cpf; // CPF do assinante
 	private String nome; // nome completo do assinante
 	private int numero; //  numero do telefone celular do assinante
 	protected Chamada[] chamadas; // vetor de referencias a objetos da classe Chamada
-	protected int numChamadas; // n�mero de chamadas feitas pelo assinante
+	protected int numChamadas; // nï¿½mero de chamadas feitas pelo assinante
 
 	public Assinante(long cpf, String nome, int numero) {
 		this.cpf = cpf;
@@ -18,9 +19,12 @@ public class Assinante {
 		return this.cpf;
 	}
 	@Override
-
     public String toString() {
-        return "CPF: " + this.cpf + "\nNome: " + this.nome + "\nNúmero: " + this.numero;
+        return "CPF: " + this.cpf + "\nNome: " + this.nome + "\nNÃºmero: " + this.numero;
     }
+
+	public abstract void fazerChamada(GregorianCalendar data, int duracao);
+	public abstract void imprimirFatura(int mes, int ano);
+
 
 }
